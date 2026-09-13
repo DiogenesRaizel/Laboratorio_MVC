@@ -1,0 +1,206 @@
+object frmProduto: TfrmProduto
+  Left = 285
+  Height = 574
+  Top = 391
+  Width = 1227
+  Caption = 'Pedido'
+  ClientHeight = 574
+  ClientWidth = 1227
+  LCLVersion = '4.8.0.0'
+  OnDestroy = FormDestroy
+  OnShortCut = FormShortCut
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 555
+    Top = 0
+    Width = 1227
+    ActivePage = tsTabela
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object tsTabela: TTabSheet
+      Caption = 'tsTabela'
+      ClientHeight = 524
+      ClientWidth = 1217
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 424
+        Top = 50
+        Width = 1217
+        Align = alClient
+        Color = clWindow
+        Columns = <>
+        DataSource = DataSource1
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        TabOrder = 1
+        OnTitleClick = DBGrid1TitleClick
+      end
+      object Panel1: TPanel
+        Left = 0
+        Height = 50
+        Top = 474
+        Width = 1217
+        Align = alBottom
+        ClientHeight = 50
+        ClientWidth = 1217
+        TabOrder = 2
+        object btnNovo: TButton
+          Left = 830
+          Height = 35
+          Top = 8
+          Width = 110
+          Anchors = [akTop, akRight]
+          Caption = 'Novo'
+          TabOrder = 0
+          OnClick = btnNovoClick
+        end
+        object btnAlterar: TButton
+          Left = 950
+          Height = 35
+          Top = 8
+          Width = 110
+          Anchors = [akTop, akRight]
+          Caption = 'Alterar'
+          TabOrder = 1
+          OnClick = btnAlterarClick
+        end
+        object btnExcluir: TButton
+          Left = 1070
+          Height = 35
+          Top = 8
+          Width = 110
+          Anchors = [akTop, akRight]
+          Caption = 'Excluir'
+          TabOrder = 2
+          OnClick = btnExcluirClick
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Height = 50
+        Top = 0
+        Width = 1217
+        Align = alTop
+        ClientHeight = 50
+        ClientWidth = 1217
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 8
+          Height = 17
+          Top = 11
+          Width = 69
+          Caption = 'Pesquisar:'
+        end
+        object edtConsulta: TEdit
+          Left = 91
+          Height = 34
+          Top = 11
+          Width = 674
+          TabOrder = 0
+          OnChange = edtConsultaChange
+        end
+        object btnLimpar: TButton
+          Left = 776
+          Height = 35
+          Top = 10
+          Width = 110
+          Caption = 'Limpar'
+          TabOrder = 1
+          OnClick = btnLimparClick
+        end
+      end
+    end
+    object tsCadastro: TTabSheet
+      Caption = 'tsCadastro'
+      ClientHeight = 524
+      ClientWidth = 1217
+      object Label1: TLabel
+        Left = 64
+        Height = 17
+        Top = 115
+        Width = 41
+        Caption = 'Nome'
+      end
+      object Label2: TLabel
+        Left = 64
+        Height = 17
+        Top = 192
+        Width = 39
+        Caption = 'Preço'
+      end
+      object Label3: TLabel
+        Left = 64
+        Height = 17
+        Top = 269
+        Width = 55
+        Caption = 'Estoque'
+      end
+      object edtNome: TEdit
+        Left = 64
+        Height = 34
+        Top = 145
+        Width = 220
+        TabOrder = 0
+      end
+      object edtPreco: TCurrencyEdit
+        Left = 64
+        Height = 34
+        Top = 215
+        Width = 220
+        Alignment = taRightJustify
+        DisplayFormat = 'R$'
+        TabOrder = 1
+      end
+      object edtEstoque: TCurrencyEdit
+        Left = 64
+        Height = 34
+        Top = 296
+        Width = 220
+        Alignment = taRightJustify
+        TabOrder = 2
+      end
+      object Panel3: TPanel
+        Left = 0
+        Height = 50
+        Top = 474
+        Width = 1217
+        Align = alBottom
+        ClientHeight = 50
+        ClientWidth = 1217
+        TabOrder = 3
+        object btnSalvar: TButton
+          Left = 952
+          Height = 35
+          Top = 8
+          Width = 110
+          Anchors = [akTop, akRight]
+          Caption = 'Salvar'
+          TabOrder = 0
+          OnClick = btnSalvarClick
+        end
+        object btnCancelar: TButton
+          Left = 1080
+          Height = 35
+          Top = 8
+          Width = 110
+          Anchors = [akTop, akRight]
+          Caption = 'Cancelar'
+          TabOrder = 1
+          OnClick = btnCancelarClick
+        end
+      end
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 19
+    Top = 555
+    Width = 1227
+    Panels = <>
+  end
+  object DataSource1: TDataSource
+    DataSet = DM.qryProdutos
+    Left = 288
+    Top = 200
+  end
+end

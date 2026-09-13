@@ -1,0 +1,57 @@
+object frmAjuda: TfrmAjuda
+  Left = 439
+  Height = 284
+  Top = 172
+  Width = 280
+  Caption = 'Ajuda'
+  ClientHeight = 284
+  ClientWidth = 280
+  LCLVersion = '4.8.0.0'
+  OnShortCut = FormShortCut
+  object Memo1: TMemo
+    Left = 0
+    Height = 234
+    Top = 0
+    Width = 280
+    Align = alClient
+    Lines.Strings = (
+      ''
+      '    ATALHOS DO TECLADO'
+      ''
+      '    Insert       Novo produto'
+      '    F2               Alterar produto selecionado'
+      '    Delete      Excluir produto selecionado'
+      '    F3               Focar pesquisa'
+      '    F4               Focar tabela'
+      '    Enter        Consultar'
+      '    Ctrl+L       Limpar pesquisa'
+      '    Ctrl+S       Salvar cadastro'
+      '    Esc             Cancelar / voltar'
+      '    F1               Abrir esta ajuda'
+    )
+    ReadOnly = True
+    TabOrder = 0
+    OnChange = Memo1Change
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 234
+    Width = 280
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 280
+    TabOrder = 1
+    object Button1: TButton
+      Left = 157
+      Height = 35
+      Top = 7
+      Width = 110
+      Anchors = [akTop]
+      Caption = 'Fechar'
+      ModalResult = 2
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+  end
+end

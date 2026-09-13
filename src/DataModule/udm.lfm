@@ -1,0 +1,113 @@
+object DM: TDM
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 636
+  HorizontalOffset = 495
+  VerticalOffset = 284
+  Width = 726
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '/media/raizel/Projetos/Lazarus_4_8/Laboratorio_MVC/data/Laboratorio_MVC.db'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    AlwaysUseBigint = False
+    Left = 88
+    Top = 32
+  end
+  object qryExec: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 88
+    Top = 168
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLite3Connection1
+    Left = 312
+    Top = 32
+  end
+  object qryProdutos: TSQLQuery
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'preco'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'estoque'
+        DataType = ftLargeint
+        Precision = -1
+      end>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT'
+      '  id,'
+      '  nome,'
+      '  CAST(preco AS REAL) AS preco,'
+      '  estoque'
+      'FROM produtos'
+      'ORDER BY id'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 304
+    Top = 168
+    object qryProdutosid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryProdutosnome: TStringField
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutosestoque: TLargeintField
+      FieldKind = fkData
+      FieldName = 'estoque'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = ',0'
+    end
+    object qryProdutospreco: TFloatField
+      FieldKind = fkData
+      FieldName = 'preco'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'R$ #,##0.00'
+      Precision = -1
+    end
+  end
+end

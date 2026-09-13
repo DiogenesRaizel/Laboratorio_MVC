@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="Laboratorio_MVC"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="rxnew"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="SQLDBLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="Laboratorio_MVC.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/View/uprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPrincipal"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Model/uproduto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uProduto"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Model/uprodutomodel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uProdutoModel"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Model/uprodutorepository.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uProdutoRepository"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/DataModule/udm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Controller/uprodutocontroller.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uProdutoController"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/View/uprodutoform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmProduto"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uProdutoForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/View/uajuda.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAjuda"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAjuda"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/View/unomeform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNome"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uNomeForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Controller/unomecontroller.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uNomeController"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/Model/unomerepository.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uNomeRepository"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="bin/Laboratorio_MVC"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="src/Controller;src/DataModule;src/Model;src/View;src/View/Utils"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions>
+      <Item>
+        <Name Value="EAbort"/>
+      </Item>
+      <Item>
+        <Name Value="ECodetoolError"/>
+      </Item>
+      <Item>
+        <Name Value="EFOpenError"/>
+      </Item>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
