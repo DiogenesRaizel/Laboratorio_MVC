@@ -47,7 +47,7 @@ uses
   uProdutoRepository,
   uDM,
   uProdutoController,
-  uProdutoForm, uAjuda, uNomeForm, uNomeController, uNomeRepository;
+  uProdutoForm, uAjuda, uNomeForm, uNomeController, uNomeRepository, uConfiguracaoApp;
 
 {$R *.res}
 

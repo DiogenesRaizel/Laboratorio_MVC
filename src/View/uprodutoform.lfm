@@ -9,6 +9,7 @@ object frmProduto: TfrmProduto
   LCLVersion = '4.8.0.0'
   OnDestroy = FormDestroy
   OnShortCut = FormShortCut
+  OnShow = FormShow
   object PageControl1: TPageControl
     Left = 0
     Height = 555
@@ -29,10 +30,29 @@ object frmProduto: TfrmProduto
         Width = 1217
         Align = alClient
         Color = clWindow
-        Columns = <>
+        Columns = <        
+          item
+            Title.Caption = 'id'
+            FieldName = 'id'
+          end        
+          item
+            Title.Caption = 'nome'
+            Width = 300
+            FieldName = 'nome'
+          end        
+          item
+            Title.Caption = 'estoque'
+            FieldName = 'estoque'
+          end        
+          item
+            Title.Caption = 'preco'
+            FieldName = 'preco'
+          end>
         DataSource = DataSource1
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        OptionsExtra = [dgeCheckboxColumn]
         TabOrder = 1
+        OnColumnSized = DBGrid1ColumnSized
         OnTitleClick = DBGrid1TitleClick
       end
       object Panel1: TPanel

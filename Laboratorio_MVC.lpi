@@ -111,6 +111,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uNomeRepository"/>
       </Unit>
+      <Unit>
+        <Filename Value="src/View/Utils/uconfiguracaoapp.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uConfiguracaoApp"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

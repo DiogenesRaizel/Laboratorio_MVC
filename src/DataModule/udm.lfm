@@ -6,7 +6,7 @@ object DM: TDM
   VerticalOffset = 284
   Width = 726
   object SQLite3Connection1: TSQLite3Connection
-    Connected = False
+    Connected = True
     LoginPrompt = False
     DatabaseName = '/media/raizel/Projetos/Lazarus_4_8/Laboratorio_MVC/data/Laboratorio_MVC.db'
     KeepConnection = False

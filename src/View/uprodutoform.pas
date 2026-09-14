@@ -53,10 +53,12 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
+    procedure DBGrid1ColumnSized(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure edtConsultaChange(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShortCut(var Msg: TLMKey; var Handled: Boolean);
+    procedure FormShow(Sender: TObject);
   private
     FController: IProdutoController;
     FModoCadastro: (mcNavegando, mcInclusao, mcEdicao);
@@ -64,6 +66,7 @@ type
     FfrmAjuda: TfrmAjuda;
     FColunaOrdenacao: string;
     FOrdemAscendente: Boolean;
+    FConfigurandoLarguras: Boolean;
 
     FTitulosColunas: TStringList;
 
@@ -73,6 +76,7 @@ type
     procedure ExecutarConsulta;
 
     procedure AtualizarTitulosOrdenacao;
+    procedure ConfigurarLargurasColunas;
 
   public
     constructor Create(AOwner: TComponent; const Controller: IProdutoController ); reintroduce;
@@ -84,6 +88,9 @@ var
   frmProduto: TfrmProduto;
 
 implementation
+
+uses
+  uConfiguracaoApp;
 
 {$R *.lfm}
 
@@ -139,10 +146,28 @@ begin
   edtConsulta.Clear;
 
   FController.LimparConsulta;
+
+
   AtualizarTitulosOrdenacao;
 
   AtualizarStatus('Navegando.');
   AtualizarEstadoBotoes;
+
+end;
+
+procedure TfrmProduto.DBGrid1ColumnSized(Sender: TObject);
+var
+  I: Integer;
+begin
+  if FConfigurandoLarguras then
+    Exit;
+
+  for I := 0 to DBGrid1.Columns.Count - 1 do
+    if Assigned(DBGrid1.Columns[I].Field) then
+      SalvarLarguraColuna(
+        DBGrid1.Columns[I].Field.FieldName,
+        DBGrid1.Columns[I].Width
+      );
 end;
 
 procedure TfrmProduto.DBGrid1TitleClick(Column: TColumn);
@@ -168,6 +193,7 @@ begin
   if Trim(edtConsulta.Text) = '' then
   begin
     FController.LimparConsulta;
+
     AtualizarTitulosOrdenacao;
     AtualizarStatus('Navegando.');
     AtualizarEstadoBotoes;
@@ -299,6 +325,11 @@ begin
   end;
 end;
 
+procedure TfrmProduto.FormShow(Sender: TObject);
+begin
+  ConfigurarLargurasColunas;
+end;
+
 procedure TfrmProduto.AtualizarEstadoBotoes;
 begin
   btnAlterar.Enabled :=
@@ -320,6 +351,7 @@ end;
 
 procedure TfrmProduto.ExecutarConsulta;
 begin
+
   FController.ConsultarProdutos(edtConsulta.Text);
 
   AtualizarTitulosOrdenacao;
@@ -351,6 +383,28 @@ begin
     else
       DBGrid1.Columns[I].Title.Caption :=
         FTitulosColunas[I];
+  end;
+end;
+
+procedure TfrmProduto.ConfigurarLargurasColunas;
+var
+  I: Integer;
+begin
+  FConfigurandoLarguras := True;
+  try
+    for I := 0 to DBGrid1.Columns.Count - 1 do
+    begin
+      if Assigned(DBGrid1.Columns[I].Field) then
+        DBGrid1.Columns[I].Width :=
+          CarregarLarguraColuna(
+            DBGrid1.Columns[I].Field.FieldName,
+            DBGrid1.Columns[I].Width
+
+          );
+
+    end;
+  finally
+    FConfigurandoLarguras := False;
   end;
 end;
 
@@ -478,6 +532,7 @@ begin
 
   edtEstoque.DecimalPlaces := 0;
   edtEstoque.DisplayFormat := ',0';
+
 end;
 
 function TfrmProduto.PodeFechar: Boolean;
